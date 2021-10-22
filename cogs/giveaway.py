@@ -41,7 +41,7 @@ class giveaway(commands.Cog):
                             winner = random.choice(users)
                         except:
                             winner = "参加者なし"
-                        embed = discord.Embed(title="GIVEAWAY終了", description=f"勝者:{winner}")
+                        embed = discord.Embed(title="GIVEAWAY終了", description=f"勝者:{winner.mention}")
                         await message.edit(embed=embed)
                         await c.execute("DELETE FROM giveaway WHERE message=%s",(message.id,))
                         
