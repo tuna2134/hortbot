@@ -1,5 +1,4 @@
 from discord.ext import commands
-import aiohttp
 import time
 import discord
 
@@ -55,10 +54,9 @@ class ai(commands.Cog):
             "apikey": "DZZmBjFMWaoULWTbPbYAI2uoetySLfdR",
             "query": message.content
         }
-        async with aiohttp.ClientSession() as session:
-            async with session.post("https://api.a3rt.recruit-tech.co.jp/talk/v1/smalltalk", data=data) as r:
-                api=await r.json()
-                return api['results'][0]['reply']
+        async with self.bot.session.post("https://api.a3rt.recruit-tech.co.jp/talk/v1/smalltalk", data=data) as r:
+            api=await r.json()
+            return api['results'][0]['reply']
                 
 def setup(bot):
     bot.add_cog(ai(bot))
