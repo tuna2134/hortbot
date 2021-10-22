@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>ヘルプメニュー</h2>
+{% for i in data %}
+<div class="help">
+   <h3><a href="/help/{{i}}">{{i}}</a></h3>
+   <p>{{data[i]["description"]}}</p>
+</div>
+{% endfor %}
+{% endblock %}

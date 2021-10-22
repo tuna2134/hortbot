@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>status</h2>
+<p>5分間に一回更新されます</p>
+<h3>最終更新時間</h3>
+<p>{{time}}</p>
+<h3>導入数</h3>
+<p>{{data["guild_count"]}}サーバー</p>
+<h3>認識できるユーザー数</h3>
+<p>{{data["user_count"]}}人</p>
+<h3>PING値</h3>
+<p>{{data["ping"]}}ms</p>
+<h3>CPU使用率</h3>
+<p>{{data["cpu"]}}%</p>
+<h3>DISK使用率</h3>
+<p>{{data["disk"]}}%</p>
+<h3>MEMORY使用率</h3>
+<p>{{data["memory"]}}%</p>
+{% endblock %}

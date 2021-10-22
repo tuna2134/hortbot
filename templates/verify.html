@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+{% if user %}
+  <form class="captcha" method="post" action="/verify/{{name}}" id="hCaptcha">
+    <h2>hCaptcha認証してください</h2>
+    <script src="https://hcaptcha.com/1/api.js" async defer></script>
+    <div class="h-captcha" data-sitekey={{sitekey}} data-callback="onSubmit"></div>
+  </form>
+{% else %}
+  <h2>まずログインしてください</h2>
+  <a href="https://discord.com/api/oauth2/authorize?client_id=829986743331586048&redirect_uri=https%3A%2F%2Fhortbot.f5.si%2Fverify%2Fcallback&response_type=code&scope=identify&state={{name}}">login</a>
+{% endif %}
+<script type="text/javascript">
+  function onSubmit(token) {
+    document.getElementById('hCaptcha').submit();
+  }
+</script>
+{% endblock %}

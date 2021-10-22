@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
+      <link rel="stylesheet" href="/static/css/dashboard.css">
+      <link rel="icon" href="static/image/favicon.ico" id="favicon">
+      <link rel="apple-touch-icon" sizes="180x180" href="static/image/apple-touch-icon-180x180.png">
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/styles/default.min.css">
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js"></script>
+      <meta property="og:url" content="https://hortbot.f5.si">
+      <meta property="og:type" content="website">
+      <meta property="og:description" content="Discord Bot『hort bot』オフィシャルサイトです。">
+      <meta property="og:image" content="/static/image/image.png">
+      <title>hort bot</title>
+    </head>
+  <body>
+    <header class="top wrapper">
+      <h1>
+        <a href="https://hortbot.f5.si">
+          <img class="logo" src="/static/image/main.jpeg" alt="hort bot">
+        </a>
+      </h1>
+      <nav>
+        <ul class="main-nav">
+          <li class="login"><a href="/help">ヘルプ</a></li>
+          <li class="login"><a href="/user_info">user検索</a></li>
+          <li class="login"><a href="/login">Login</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+    <footer>
+      <div class="wrapper">
+        <p><small>&copy; 2021 DMS, Design was made with <a href="https://github.com/mf-Mii/" style="color: #fff;">mf_Mii</a></small></p>
+      </div>
+    </footer>
+  </body>
+</html>

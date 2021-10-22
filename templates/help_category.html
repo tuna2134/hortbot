@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>カテゴリー:{{category}}</h2>
+{% for i in data["command"] %}
+<div class="help">
+    <h3><a href="/help/{{category}}/{{i}}">{{i}}</a></h3>
+    <p>{{data["command"][i][0]}}</p>
+    <br>
+</div>
+{% endfor %}
+{% endblock %}

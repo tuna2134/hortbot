@@ -1,0 +1,34 @@
+{
+    "test": {
+        "description": "test",
+        "command": {
+            "t": ["これはテスト用のコマンドです", "実行してもあまり意味がありません\n```python\nimport test```"]
+        }
+    },
+    "bot": {
+        "description": "botに関するコマンドです",
+        "command": {
+            "ping": ["botのping値を表示します", "### 使い方:\nhb?ping これでボットの速さが表示できます"],
+            "about": ["botを作成した人を確認できるコマンドです", "### 使い方:\nhb?about これでbotに関することを表示できます"],
+            "invite": ["botの招待リンクを表示します", "### 使い方:\nhb?invite ボットの招待リンクを表示できます"],
+            "help": ["ヘルプコマンドを表示します", "### 使い方:\n全てのカテゴリーを表示する際\nhb?help\n特定のカテゴリーのコマンドを表示する際\nhb?help <特定のカテゴリー名>\n特定のコマンドの使い方を表示する際\nhb?help <コマンド名>"],
+            "dhelp": ["discordでヘルプコマンドを表示します", "[ここ](https://hortbot.f5.si/help/bot/help)と使い方が似ているので参考にしてください"]
+        }
+    },
+    "server": {
+        "description": "サーバーに関するヘルプです",
+        "command": {
+            "ai": ["ai関係", "### 使い方:\n接続方法: hb?ai connect\n速さ測定: hb?ping"],
+            "gc": ["グローバルチャット関係", "### 使い方:\n接続方法: hb?gc join <グローバルチャット名>\nグローバルチャット作成方法: hb?gc join <作成するグローバルチャット名>\nグローバルチャット退出方法: hb?gc leave"],
+            "captcha": ["Captcha関係", "### 使い方:\nweb認証設定: hb?captcha web <ロールメンション/ロールID>"],
+            "ngword": ["ngword関係", "### 使い方:\nngwordに登録: hb?ngword add\nngwordから削除: hb?ngword remove\n登録されているngwordを表示: hb?ngword list"]
+        }
+    },
+    "user": {
+        "description": "一般コマンド",
+        "command": {
+            "giveaway": ["giveaway関係", "### 使い方:\nセット方法: hb?giveaway set <分単位> <景品名>"],
+            "ss": ["BOTがサイトの情報を取得してきます", "### 使い方:\nhb?ss <url>"]
+        }
+    }
+}

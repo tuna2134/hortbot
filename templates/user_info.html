@@ -1,0 +1,8 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>user検索</h2>
+<form action="/user_info" method="post">
+    <input type="text" name="userid" placeholder="ユーザーID">
+    <button type="submit" name="search">検索</button>
+</form>
+{% endblock %}

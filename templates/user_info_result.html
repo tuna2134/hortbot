@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>user検索</h2>
+<img class="logo" src="{{ avatar }}" alt="{{ user.avatar }}">
+<h3>ユーザー名</h3>
+<p>{{user.name}}</p>
+<h3>ユーザーID</h3>
+<p>{{user.id}}</p>
+<h3>ユーザータグ</h3>
+<p>{{user.discriminator}}</p>
+<h3>アカウント作成日時</h3>
+<p>{{create_time}}</p>
+<a href="/user_info">戻る</a>
+{% endblock %}
