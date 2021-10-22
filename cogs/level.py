@@ -47,7 +47,8 @@ class level(commands.Cog):
                     guild, user, level, exp = data
                     if exp+1 >= level*3:
                         print(level+1)
-                        await c.execute("UPDATE level SET level=%s AND exp=%s WHERE author=%s",(level+1,1,message.author.id))
+                        await c.execute("UPDATE level SET exp=%s WHERE author=%s",(0,message.author.id))
+                        await c.execute("UPDATE level SET level=%s WHERE author=%s",(level+1, message.author.id))
                         await message.channel.send("レベルアップしました")
                     else:
                         await c.execute("UPDATE level SET exp=%s WHERE author=%s",(exp+1,message.author.id))
