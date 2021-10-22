@@ -59,7 +59,13 @@ class captcha_cmd(commands.Cog):
                 await c.execute("INSERT INTO captcha_url VALUES(%s,%s,%s);", (name, ctx.guild.id, str(time.time())))
         url = "https://hortbot.f5.si/verify/"+name
         embed=discord.Embed(title="web認証", description=f"ここで認証してください\n{url}")
-        await ctx.send(embed=embed)               
+        await ctx.send(embed=embed)
+        
+    @commands.Cog.listener(name="on_button_click")
+    async def send_image(self, com):
+        if com.data["custom_id"] == "auth_image":
+            number = self.randomname(5)
+            await com.response.pong()
         
     @commands.Cog.listener(name="on_member_join")
     async def captcha_send(self, member):
