@@ -28,6 +28,7 @@ bot = HortBot(command_prefix = prefix, intents = intents, help_command = None)
 
 bot.prefix = prefix
     
+#準備
 @bot.event
 async def on_ready():
     await bot.change_presence(activity=discord.Game(status=discord.Status.dnd,name="Now system is starting...", type=1))
