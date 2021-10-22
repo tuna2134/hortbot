@@ -62,6 +62,7 @@ class Bot(commands.Cog):
         e.add_field(name="BOTの開発者", value="孤独のコーヒー")
         e.add_field(name="モデレーター", value="kazuma")
         e.add_field(name="BOTの導入数", value=len(self.bot.guilds))
+        e.add_field(name="github", value="https://github.com/tuna2134/hortbot")
         view = View()
         view.add_item(Button(label="サポートサーバー", url="https://discord.gg/pzC8VgMMn8", style=discord.ButtonStyle.green))
         view.add_item(Button(label="公式サイト", url="https://hortbot.f5.si", style=discord.ButtonStyle.green))
