@@ -1,10 +1,4 @@
 {
-    "test": {
-        "description": "test",
-        "command": {
-            "t": ["これはテスト用のコマンドです", "実行してもあまり意味がありません\n```python\nimport test```"]
-        }
-    },
     "bot": {
         "description": "botに関するコマンドです",
         "command": {
