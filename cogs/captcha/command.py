@@ -2,6 +2,7 @@ from discord.ext import commands, tasks
 import discord
 import random, string
 import time
+from discord.ui import View, Button
 
 class captcha_cmd(commands.Cog):
     def __init__(self, bot):
@@ -34,6 +35,17 @@ class captcha_cmd(commands.Cog):
             async with conn.cursor() as c:
                 await c.execute("INSERT INTO captcha_web VALUES(%s,%s,%s);", (int(ctx.guild.id), int(ctx.channel.id), int(role.id)))
         await ctx.send("登録しました")
+        
+    @captcha.command(name="image")
+    @commands.has_guild_permissions(administrator=True)
+    async def image(self, ctx, role:discord.Role):
+        view = View()
+        view.add_item(Button(label="認証", custom_id="auth_image"))
+        e = discord.Embed(title="画像認証", description="認証をクリックしてください")
+        await ctx.send(embed=e, view=view)
+        async with self.pool.acquire() as conn:
+            async with conn.cursor() as c:
+                await c.execute("INSERT INTO captcha_image VALUES(%s, %s, %s", (m.channel.id, m.id, role.id)
 
     @captcha.command(name="create")
     async def create(self, ctx):
