@@ -42,7 +42,7 @@ class captcha_cmd(commands.Cog):
         view = View()
         view.add_item(Button(label="認証", custom_id="auth_image"))
         e = discord.Embed(title="画像認証", description="認証をクリックしてください")
-        await ctx.send(embed=e, view=view)
+        m = await ctx.send(embed=e, view=view)
         async with self.pool.acquire() as conn:
             async with conn.cursor() as c:
                 await c.execute("INSERT INTO captcha_image VALUES(%s, %s, %s", (m.channel.id, m.id, role.id))
