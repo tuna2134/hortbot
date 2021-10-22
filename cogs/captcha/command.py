@@ -45,7 +45,7 @@ class captcha_cmd(commands.Cog):
         await ctx.send(embed=e, view=view)
         async with self.pool.acquire() as conn:
             async with conn.cursor() as c:
-                await c.execute("INSERT INTO captcha_image VALUES(%s, %s, %s", (m.channel.id, m.id, role.id)
+                await c.execute("INSERT INTO captcha_image VALUES(%s, %s, %s", (m.channel.id, m.id, role.id))
 
     @captcha.command(name="create")
     async def create(self, ctx):
