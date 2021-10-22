@@ -2,12 +2,14 @@ from discord.ext import commands, tasks
 import discord
 import random, string
 import time
+from captcha.image import ImageCaptcha
 from discord.ui import View, Button
 
 class captcha_cmd(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.pool = bot.pool
+        self.image = ImageCaptcha()
         self.Captcha_web_reset.start()
         
     def randomname(self, n):
@@ -63,9 +65,15 @@ class captcha_cmd(commands.Cog):
         
     @commands.Cog.listener(name="on_button_click")
     async def send_image(self, com):
+        print("a")
         if com.data["custom_id"] == "auth_image":
             number = self.randomname(5)
-            await com.response.send_message("test")
+            channel = self.bot.get_channel(878398355745669181)
+            fp = self.image.generate(number)
+            f = await channel.send(file=discord.File(fp, filename="captcha.png"))
+            e = discord.Embed(title="認証してください")
+            e.set_image(url=f.attachments[0].url)
+            await com.response.send_message(embed=e)
         
     @commands.Cog.listener(name="on_member_join")
     async def captcha_send(self, member):
