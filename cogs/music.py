@@ -6,6 +6,7 @@ class music(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
+    #実験していない
     @commands.command("play")
     async def _play(self, ctx, url):
         channel = ctx.author.voice.channel
@@ -18,6 +19,7 @@ class music(commands.Cog):
             data = await nico.get_info()
             await ctx.send(f'{data["video"]["title"]}を再生しました')
 
+    # まだ作成中
     @commands.command("search_play")
     async def _search_play(self, ctx, *, word):
         query = {
