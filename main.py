@@ -57,6 +57,7 @@ async def on_ready():
 
 @bot.event
 async def on_message(message):
+    # DMから来たコマンドを弾くやつ
     if isinstance(message.channel, discord.DMChannel):
         return
     await bot.process_commands(message)
