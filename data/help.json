@@ -15,7 +15,9 @@
             "ai": ["ai関係", "### 使い方:\n接続方法: hb?ai connect\n速さ測定: hb?ping"],
             "gc": ["グローバルチャット関係", "### 使い方:\n接続方法: hb?gc join <グローバルチャット名>\nグローバルチャット作成方法: hb?gc join <作成するグローバルチャット名>\nグローバルチャット退出方法: hb?gc leave"],
             "captcha": ["Captcha関係", "### 使い方:\nweb認証設定: hb?captcha web <ロールメンション/ロールID>"],
-            "ngword": ["ngword関係", "### 使い方:\nngwordに登録: hb?ngword add\nngwordから削除: hb?ngword remove\n登録されているngwordを表示: hb?ngword list"]
+            "ngword": ["ngword関係", "### 使い方:\nngwordに登録: hb?ngword add\nngwordから削除: hb?ngword remove\n登録されているngwordを表示: hb?ngword list"],
+            "ban": ["ban", "### 使い方:\nhb?ban <USERID>"],
+            "kick": ["kick", "### 使い方:\nhb?kick <USERID>\n#### 注意:\n指定したユーザーがサーバーにいないとkickできません"]
         }
     },
     "user": {
