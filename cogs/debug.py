@@ -23,6 +23,14 @@ class Debug(commands.Cog):
         if ctx.invoked_subcommand:
             pass
 
+    @_debug.command("sudo")
+    async def _debug_sudo(self, ctx, user:discord.Member, *, command):
+        message = ctx.message
+        message.author = user
+        message.content = bot.prefix + command
+        await self.bot.get_context(message)
+        await ctx.send("実行しました")
+
     @_debug.command("reload")
     async def _debug_reload(self, ctx):
         self.bot.web.router.reset()

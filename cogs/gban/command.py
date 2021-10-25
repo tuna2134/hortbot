@@ -53,6 +53,11 @@ class Command(commands.Cog):
                 for name in channel.topic.splitlines():
                     if name.startswith("hb>gban"):
                         await guild.ban(user, reason)
+                        e = discord.Embed(title="GBAN通知")
+                        e.add_field(name="対象者", value=user.name)
+                        e.add_field(name="対象者ID", value=user.id)
+                        e.add_field(name="理由", value=reason)
+                        await channel.send(embed = e)
         await self.bot.send_ws({
             "t": "GBAN",
             "d": {
