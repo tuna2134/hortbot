@@ -15,7 +15,7 @@ class music(commands.Cog):
         if ctx.voice_client is None:
             await channel.connect()
         async with niconico_dl.NicoNicoVideoAsync(url, loop=self.bot.loop, log=True) as nico:
-            ctx.voice_client.play(nico.get_download_link)
+            ctx.voice_client.play(await nico.get_download_link())
             data = await nico.get_info()
             await ctx.send(f'{data["video"]["title"]}を再生しました')
 
