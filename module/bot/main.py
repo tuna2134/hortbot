@@ -32,7 +32,6 @@ class HortBot(commands.AutoShardedBot):
         self.data = {}
         commands.web_cooldown = self.cooldown
         self._slash = {}
-        self.session = aiohttp.ClientSession()
         self.ws_list = []
 
     async def send_ws(self, data):
@@ -47,6 +46,7 @@ class HortBot(commands.AutoShardedBot):
         
     async def setup(self, app, loop):
         self.pool = await aiomysql.create_pool(host="public-cbsv1.net.rikusutep.xyz", user="dms", password=dbword, loop=loop, db="b3vad_", autocommit=True)
+        self.session = aiohttp.ClientSession(loop=loop)
         self.db = await self.pool.acquire()
         super().__init__(*self.__args, **self.__kwargs)
         loop.create_task(self.start(self.token, reconnect=self.reconnect))

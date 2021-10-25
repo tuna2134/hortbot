@@ -47,7 +47,7 @@ class captcha_cmd(commands.Cog):
         m = await ctx.send(embed=e, view=view)
         async with self.pool.acquire() as conn:
             async with conn.cursor() as c:
-                await c.execute("INSERT INTO captcha_image VALUES(%s, %s, %s)", (m.channel.id, m.id, role.id))
+                await c.execute("INSERT INTO captcha_image VALUES(%s, %s, %s, %s)", (m.guild.id, m.channel.id, m.id, role.id))
 
     @captcha.command(name="create")
     async def create(self, ctx):
@@ -73,7 +73,7 @@ class captcha_cmd(commands.Cog):
             f = await channel.send(file=discord.File(fp, filename="captcha.png"))
             e = discord.Embed(title="認証してください")
             e.set_image(url=f.attachments[0].url)
-            await com.response.send_message(embed=e)
+            await com.response.send_message(embed=e, ephemeral=True)
         
     @commands.Cog.listener(name="on_member_join")
     async def captcha_send(self, member):

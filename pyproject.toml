@@ -15,6 +15,9 @@ aiomysql = "^0.0.21"
 "discord.py" = {git = "https://github.com/rapptz/discord.py", rev = "master"}
 Flask-Misaka = "^1.0.0"
 "captcha" = "^0.3"
+beautifulsoup4 = "^4.10.0"
+feedparser = "^6.0.8"
+niconico-dl = "^2.2.7"
 
 [tool.poetry.dev-dependencies]
 

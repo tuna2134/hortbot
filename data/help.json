@@ -22,7 +22,8 @@
         "description": "一般コマンド",
         "command": {
             "giveaway": ["giveaway関係", "### 使い方:\nセット方法: hb?giveaway set <分単位> <景品名>"],
-            "ss": ["BOTがサイトの情報を取得してきます", "### 使い方:\nhb?ss <url>"]
+            "ss": ["BOTがサイトの情報を取得してきます", "### 使い方:\nhb?ss <url>"],
+            "covid19": ["コロナ感染状況を表示します", "### 使い方:\nhb?covid19 で日本を取得できます\nhb?covid19 <国名> で指定した国の感染状況を表示します"]
         }
     }
 }

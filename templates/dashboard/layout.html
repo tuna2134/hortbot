@@ -20,19 +20,17 @@
           <img class="logo" src="/static/image/main.jpeg" alt="hort bot">
         </a>
       </h1>
-      <nav>
-        <ul class="main-nav">
-          <li class="login"><a href="/help">ヘルプ</a></li>
-          <li class="login"><a href="/user_info">user検索</a></li>
-          <li class="login"><a href="/login">Login</a></li>
-        </ul>
-      </nav>
     </header>
-    <main>
-      {% block content %}
-      {% endblock %}
-    </main>
-    <footer>
+    <div class="dashboard">
+        <div id="sidemenu">
+            <h2>メニュー</h2>
+        </div>
+        <div id="main">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+        <footer>
       <div class="wrapper">
         <p><small>&copy; 2021 DMS, Design was made with <a href="https://github.com/mf-Mii/" style="color: #fff;">mf_Mii</a></small></p>
       </div>

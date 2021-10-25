@@ -30,10 +30,17 @@
         </ul>
       </nav>
     </header>
-    <main>
-      {% block content %}
-      {% endblock %}
-    </main>
+    <div class="docs-content">
+        <aside id="docs-side">
+            <h2>menu</h2>
+            <p><a href="/docs/status">/status</a></p>
+            <p><a href="/docs/gateway">/gateway</a></p>
+            <p><a href="/docs/gban">/gban</a></p>
+        </aside>
+        <article id="docs-main">
+            {{content|markdown}}
+        </article>
+    </div>
     <footer>
       <div class="wrapper">
         <p><small>&copy; 2021 DMS, Design was made with <a href="https://github.com/mf-Mii/" style="color: #fff;">mf_Mii</a></small></p>

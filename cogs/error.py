@@ -4,6 +4,7 @@ import traceback
 import discord
 from sanic.response import text
 from discord.ui import View, Button
+from module.page import Embeds
 
 class Error(commands.Cog):
     def __init__(self, bot):
@@ -23,7 +24,11 @@ class Error(commands.Cog):
             description="権限が足りません"
         else:
             error="".join(traceback.TracebackException.from_exception(error).format())
-            description=f"```py\n{error[-1990:]}```"
+            error_list = [error[i: i+1900] for i in range(0, len(error), 1900)]
+            embeds = Embeds(self.bot)
+            for msg in error_list:
+                embeds.add_item(discord.Embed(title="エラー", description=f"```py\n{msg}```"))
+            return await embeds.send(ctx.message)
         e=discord.Embed(title="エラー", description=description, color=0xff0000)
         view = View()
         view.add_item(Button(label="サポートサーバー", url="https://discord.gg/pzC8VgMMn8"))

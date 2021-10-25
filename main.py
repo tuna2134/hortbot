@@ -8,6 +8,8 @@ import time
 from module.web_manager import web_manager
 from discord.ui import View, Button
 from datetime import datetime, timedelta
+import logging
+#from module.logging import Discord_logging
 
 token = os.getenv("token")
 
@@ -25,6 +27,8 @@ intents = discord.Intents.all()
 intents.typing = False
 
 bot = HortBot(command_prefix = prefix, intents = intents, help_command = None)
+
+logger = logging.getLogger("discord")
 
 bot.prefix = prefix
     

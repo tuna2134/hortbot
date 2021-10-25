@@ -121,3 +121,17 @@ input{
   border: 1px solid #000;
   border-radius: 5px;
 }
+#docs-side {
+    width: 40%;
+}
+#docs-main {
+    width: 100%;
+}
+#docs-side h2 {
+    border-buttom: 2px solid #000;
+}
+.docs-content {
+    display: flex;
+    justify-content: space-between;
+    margin-buttom: 100px;
+}
