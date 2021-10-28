@@ -18,8 +18,7 @@ class music(commands.Cog):
                 options=OPTIONS
             )
         )
-
-    #実験していない
+        
     @commands.command("play")
     async def _play(self, ctx, url):
         channel = ctx.author.voice.channel
@@ -34,7 +33,7 @@ class music(commands.Cog):
 
     @commands.command("pause")
     async def _pause(self, ctx):
-        discord.VoiceClient.pause()
+        ctx.voice_client.pause()
         await ctx.send("一時停止しました")
 
     @commands.command("search_play")
