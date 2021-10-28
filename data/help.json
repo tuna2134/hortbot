@@ -17,7 +17,8 @@
             "captcha": ["Captcha関係", "### 使い方:\nweb認証設定: hb?captcha web <ロールメンション/ロールID>"],
             "ngword": ["ngword関係", "### 使い方:\nngwordに登録: hb?ngword add\nngwordから削除: hb?ngword remove\n登録されているngwordを表示: hb?ngword list"],
             "ban": ["ban", "### 使い方:\nhb?ban <USERID>"],
-            "kick": ["kick", "### 使い方:\nhb?kick <USERID>\n#### 注意:\n指定したユーザーがサーバーにいないとkickできません"]
+            "kick": ["kick", "### 使い方:\nhb?kick <USERID>\n#### 注意:\n指定したユーザーがサーバーにいないとkickできません"],
+            "gban": ["グローバルban", "### 使い方\nhb>gban これをトピックに入れることでグローバルbanを有効にできます。"]
         }
     },
     "user": {

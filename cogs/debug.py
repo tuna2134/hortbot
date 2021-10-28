@@ -6,6 +6,7 @@ import textwrap
 import traceback
 import io
 import os
+import discord
 
 class Debug(commands.Cog):
     def __init__(self, bot):
@@ -27,7 +28,7 @@ class Debug(commands.Cog):
     async def _debug_sudo(self, ctx, user:discord.Member, *, command):
         message = ctx.message
         message.author = user
-        message.content = bot.prefix + command
+        message.content = self.bot.prefix + command
         await self.bot.get_context(message)
         await ctx.send("実行しました")
 
@@ -53,7 +54,7 @@ class Debug(commands.Cog):
         }
         env.update(globals())
         stdout = io.StringIO()
-        to_compile = f'async def func():\n{textwrap.indent(body, "  ")}'
+        to_compile = f'async def func()\n{textwrap.indent(body, "  ")}'
         exec(to_compile, env)
         func = env['func']
         try:

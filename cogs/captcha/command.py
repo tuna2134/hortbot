@@ -65,8 +65,6 @@ class captcha_cmd(commands.Cog):
         
     @commands.Cog.listener(name="on_button_click")
     async def send_image(self, com):
-<<<<<<< HEAD
-<<<<<<< HEAD
         print("a")
         if com.data["custom_id"] == "auth_image":
             number = self.randomname(5)
@@ -76,16 +74,12 @@ class captcha_cmd(commands.Cog):
             e = discord.Embed(title="認証してください")
             e.set_image(url=f.attachments[0].url)
             await com.response.send_message(embed=e, ephemeral=True)
-=======
         if com.data["custom_id"] == "auth_image":
             number = self.randomname(5)
             await com.response.pong()
->>>>>>> 511647dacefc68225739f18bdbbabdc1861e3281
-=======
         if com.data["custom_id"] == "auth_image":
             number = self.randomname(5)
             await com.response.pong()
->>>>>>> 511647dacefc68225739f18bdbbabdc1861e3281
         
     @commands.Cog.listener(name="on_member_join")
     async def captcha_send(self, member):

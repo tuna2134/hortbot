@@ -20,7 +20,7 @@ class GbanWeb(commands.Cog):
                     }
                     for user, reason in (await c.fetchall()):
                         rjson["item"]["gban"].append({
-                            "user": user,
+                            "user": str(user),
                             "reason": reason
                         })
                     return json(rjson)

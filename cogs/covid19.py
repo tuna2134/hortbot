@@ -1,5 +1,4 @@
 from discord.ext import commands
-import aiohttp
 from asyncio import sleep
 import discord
 

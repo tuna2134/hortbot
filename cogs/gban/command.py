@@ -28,8 +28,9 @@ class Command(commands.Cog):
         ))
         m = await ctx.send(embed=e, view=view)
         def check(com):
-            return com.type == discord.InteractionType.component and com.message == m.id
+            return com.type == discord.InteractionType.component and com.message == m
         com = await self.bot.wait_for("interaction", check=check)
+        print("Point: A")
         if com.data["custom_id"] == "True":
             async with self.bot.pool.acquire() as conn:
                 async with conn.cursor() as c:
@@ -50,14 +51,15 @@ class Command(commands.Cog):
     async def gban_start(self, user, reason):
         for guild in self.bot.guilds:
             for channel in guild.text_channels:
-                for name in channel.topic.splitlines():
-                    if name.startswith("hb>gban"):
-                        await guild.ban(user, reason)
-                        e = discord.Embed(title="GBAN通知")
-                        e.add_field(name="対象者", value=user.name)
-                        e.add_field(name="対象者ID", value=user.id)
-                        e.add_field(name="理由", value=reason)
-                        await channel.send(embed = e)
+                if not channel.topic is None:
+                    for name in channel.topic.splitlines():
+                        if name.startswith("hb>gban"):
+                            await guild.ban(user, reason=reason)
+                            e = discord.Embed(title="GBAN通知")
+                            e.add_field(name="対象者", value=user.name)
+                            e.add_field(name="対象者ID", value=user.id)
+                            e.add_field(name="理由", value=reason)
+                            await channel.send(embed = e)
         await self.bot.send_ws({
             "t": "GBAN",
             "d": {
