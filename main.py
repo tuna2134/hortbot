@@ -1,15 +1,12 @@
-from sanic import Sanic
 import os
-from sanic.response import *
 from module.bot import HortBot
 from sanic.log import logger
 import discord
 import time
-from module.web_manager import web_manager
 from discord.ui import View, Button
 from datetime import datetime, timedelta
 import logging
-#from module.logging import Discord_logging
+# from module.logging import Discord_logging
 
 token = os.getenv("token")
 
@@ -26,16 +23,22 @@ else:
 intents = discord.Intents.all()
 intents.typing = False
 
-bot = HortBot(command_prefix = prefix, intents = intents, help_command = None)
+bot = HortBot(
+    command_prefix = prefix,
+    intents = intents,
+    help_command = None
+)
 
-logger = logging.getLogger("discord")
+logger = logging.getLogger(
+    "discord"
+)
 
 bot.prefix = prefix
-    
-#準備
+
+# 準備
 @bot.event
 async def on_ready():
-    await bot.change_presence(activity=discord.Game(status=discord.Status.dnd,name="Now system is starting...", type=1))
+    await bot.change_presence(activity=discord.Game(status = discord.Status.dnd, name = "Now system is starting...", type = 4))
     bot.load_extension("jishaku")
     bot.load_extension("module.button")
     for filename in os.listdir("cogs"):
