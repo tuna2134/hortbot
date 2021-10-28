@@ -10,7 +10,7 @@ class Afk(commands.Cog):
     async def _afk(self, ctx, *, reason="なし"):
         async with self.pool.acquire() as conn:
             async with conn.cursor() as c:
-                await c.execute("SELECT * FROM afk user=%s", (ctx.author.id,))
+                await c.execute("SELECT * FROM afk WHERE user=%s", (ctx.author.id,))
                 if (await c.fetchone()) is None:
                     await c.execute("INSERT INTO afk VALUES(%s, %s)", (ctx.author.id, reason))
                     await ctx.send("AFKを設定しました。")
@@ -18,17 +18,20 @@ class Afk(commands.Cog):
                     await c.execute("DELETE FROM afk WHERE user=%s", (ctx.author.id,))
                     await ctx.send("AFKを解除しました。")
 
-        @commands.Cog.listener("on_message")
-        async def _afk_message(self, message):
+        @commands.Cog.listener()
+        async def on_message(self, message):
+            print("Point: C")
             if message.author.bot:
                 return
             async with self.pool.acquire() as conn:
                 async with conn.cursor() as c:
                     await c.execute("SELECT * FROM afk WHERE user=%s", (message.author.id,))
+                    print("Point: A")
                     if not (await c.fetchone()) is None:
                         e = discord.Embed(title="AFK機能", description="解除しました")
                         await message.reply(embed = e)
                     else:
+                        print("Point: B")
                         for user in message.mentions:
                             await c.execute("SELECT * FROM afk WHERE user=%s", (user.id,))
                             data = await c.fetchone()

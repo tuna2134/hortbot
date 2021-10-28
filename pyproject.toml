@@ -18,6 +18,7 @@ Flask-Misaka = "^1.0.0"
 beautifulsoup4 = "^4.10.0"
 feedparser = "^6.0.8"
 niconico-dl = "^2.2.7"
+PyNaCl = "^1.4.0"
 
 [tool.poetry.dev-dependencies]
 

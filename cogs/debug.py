@@ -28,7 +28,7 @@ class Debug(commands.Cog):
     async def _debug_sudo(self, ctx, user:discord.Member, *, command):
         message = ctx.message
         message.author = user
-        message.content = self.bot.prefix + command
+        message.content = f"{self.bot.prefix}{command}"
         await self.bot.get_context(message)
         await ctx.send("実行しました")
 
